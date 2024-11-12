@@ -24,7 +24,7 @@ drive.mount('/content/drive')
 DRIVE_MOUNT_PATH = "/content/drive"
 GRAPHPATH = os.path.join(DRIVE_MOUNT_PATH, "MyDrive/graficos")
 SUMMARYPATH = os.path.join(DRIVE_MOUNT_PATH, "MyDrive/sumarios")
-PALETTE = sns.color_palette("Set2")
+PALETTE = sns.color_palette("bright")  # Paleta de cores vibrante
 FIGSIZE = (10, 6)
 
 # Função para criar diretórios se não existirem
@@ -68,7 +68,7 @@ class GraphGenerator:
     def _adjust_palette(self, hue):
         unique_hue_values = self._compute_df()[hue].nunique()
         if unique_hue_values > len(PALETTE):
-            return sns.color_palette("husl", unique_hue_values)
+            return sns.color_palette("bright", unique_hue_values)
         return PALETTE
 
     def generate_violinplot(self, x, y, hue, title, filename, split=False):
